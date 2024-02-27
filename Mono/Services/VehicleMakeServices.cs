@@ -1,4 +1,5 @@
 ﻿using Model;
+using Mono.Common;
 using Mono.DAL.Entities;
 using Mono.Repository.Common;
 using Mono.Services.Common;
@@ -32,15 +33,11 @@ namespace Mono.Services
             
         }
 
-        public IQueryable<VehicleMakeEntity> GetAllPaginated(IQueryable<VehicleMakeEntity> source, int page,int pageSize)
+        public IQueryable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
         {
-           return _unitOfWork.VehicleMake.GetAllPaginated(source, page,pageSize);  
+            return _unitOfWork.VehicleMake.GetAll(filter);
         }
 
-        public IQueryable<VehicleMakeEntity> GetAllSortedFiltered(string sortOrder, string searchString)
-        {
-            return _unitOfWork.VehicleMake.GetAllSortedFiltered(GetAll(),sortOrder, searchString);
-        }
 
         public async Task<VehicleMakeEntity> GetByIdAsync(int id)
         {

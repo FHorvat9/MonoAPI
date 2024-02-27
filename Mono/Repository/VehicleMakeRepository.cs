@@ -3,6 +3,8 @@ using Model;
 using Mono.Common;
 using Mono.DAL.Entities;
 using Mono.Repository.Common;
+using System.Drawing.Printing;
+using System.Transactions;
 
 namespace Mono.Repository
 {
@@ -14,20 +16,11 @@ namespace Mono.Repository
 
         }
 
-        public IQueryable<VehicleMakeEntity> GetAllSortedFiltered(IQueryable<VehicleMakeEntity> source,string sortOrder, string searchString)
+        public IQueryable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
         {
-            return FilteredList.createFilteredList(source, sortOrder, searchString);
+            return FilteredList.createFilteredList(base.GetAll(), filter);
             
         }
-        public IQueryable<VehicleMakeEntity> GetAllPaginated(IQueryable<VehicleMakeEntity> source,int page,int pageSize)
-        {
-            
-                return PaginatedList.createPaginatedList(source, page, pageSize);
-
-            
-
-
-
-        }
+       
     }
 }

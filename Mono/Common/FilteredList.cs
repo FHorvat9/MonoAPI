@@ -1,5 +1,6 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using Mono.DAL.Entities;
+using System.Reflection.Metadata.Ecma335;
 
 
 namespace Mono.Common
@@ -8,11 +9,18 @@ namespace Mono.Common
     {
 
 
-        public static IQueryable<VehicleMakeEntity> createFilteredList(IQueryable<VehicleMakeEntity> source, string sortOrder, string searchString)
+        public static IQueryable<VehicleMakeEntity> createFilteredList(IQueryable<VehicleMakeEntity> source, VehicleMakeFilter filter)
         {
-            var VehicleListFiltered = GetAllVehicleMakesFiltered(source, searchString);
-            var VehicleListFilteredSorted = GetAllVehicleMakesSorted(VehicleListFiltered, sortOrder);
-            return VehicleListFilteredSorted;
+            var VehicleListFiltered = GetAllVehicleMakesFiltered(source, filter.searchString);
+            var VehicleListFilteredSorted = GetAllVehicleMakesSorted(VehicleListFiltered, filter.sortOrder);
+            if (filter.page <= 0 || filter.pageSize <= 0)
+            {
+                return VehicleListFilteredSorted;
+            }
+            else { 
+            return createPaginatedList(VehicleListFilteredSorted, filter);
+        }
+            
         }
 
         private static IQueryable<VehicleMakeEntity> GetAllVehicleMakesFiltered(IQueryable<VehicleMakeEntity> source, string searchString)
@@ -47,6 +55,20 @@ namespace Mono.Common
                     return source.OrderBy(e => e.Name);
 
             }
+        }
+        private static IQueryable<VehicleMakeEntity> createPaginatedList(IQueryable<VehicleMakeEntity> source, VehicleMakeFilter filter)
+        {
+            
+            var count = source.Count();
+            var pageCount = (int)Math.Ceiling((double)count / filter.pageSize);
+            if (filter.page > pageCount)
+            {
+                filter.page = pageCount;
+            }
+            var pagedVehicles = source.Skip((filter.page - 1) * filter.pageSize)
+                .Take(filter.pageSize);
+
+            return pagedVehicles;
         }
     }
 }

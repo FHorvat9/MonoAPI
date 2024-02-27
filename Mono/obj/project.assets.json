@@ -5108,11 +5108,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Programiranje\\Projekti\\MonoWEBapi\\Mono\\Mono.csproj",
+      "projectUniqueName": "E:\\Programiranje\\Projekti\\MonoAPI\\Mono\\Mono.csproj",
       "projectName": "Mono",
-      "projectPath": "E:\\Programiranje\\Projekti\\MonoWEBapi\\Mono\\Mono.csproj",
+      "projectPath": "E:\\Programiranje\\Projekti\\MonoAPI\\Mono\\Mono.csproj",
       "packagesPath": "C:\\Users\\Feecho\\.nuget\\packages\\",
-      "outputPath": "E:\\Programiranje\\Projekti\\MonoWEBapi\\Mono\\obj\\",
+      "outputPath": "E:\\Programiranje\\Projekti\\MonoAPI\\Mono\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Feecho\\AppData\\Roaming\\NuGet\\NuGet.Config",

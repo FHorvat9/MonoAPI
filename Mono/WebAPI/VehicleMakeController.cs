@@ -24,26 +24,27 @@ namespace Mono.WebAPI
         [HttpGet("GetAllVehicleMakes")]
         public async Task<IActionResult> ReadAll()
         {
+            
             var vehicles =  _vehicleMakeServices.GetAll();
             
             
             return Ok(vehicles);
         }
-
         [HttpGet("GetAllVehicleMakesFiltered")]
-        public async Task<IActionResult> ReadAllFiltered(string sortOrder="", string searchString="")
+        public async Task<IActionResult> ReadAll(string? sortOrder, string? searchString, int page, int pageSize)
         {
-          var vehicles =  _vehicleMakeServices.GetAllSortedFiltered(sortOrder, searchString);
-          return Ok(vehicles);
+            VehicleMakeFilter filter = new VehicleMakeFilter();
+            filter.sortOrder = sortOrder;
+            filter.searchString = searchString;
+            filter.page = page;
+            filter.pageSize = pageSize;
+            var vehicles = _vehicleMakeServices.GetAll(filter);
+
+
+            return Ok(vehicles);
         }
 
-        [HttpGet("GetAllVehicleMakesFilteredPaginated")]
-        public async Task<IActionResult> ReadAllFilteredPaginated(string sortOrder = "", string searchString = "", int page = 1,int pageSize = 5)
-        {
-            var vehicles =  _vehicleMakeServices.GetAllSortedFiltered(sortOrder, searchString);
-            
-            return Ok(_vehicleMakeServices.GetAllPaginated(vehicles,page, pageSize));
-        }
+
 
 
 

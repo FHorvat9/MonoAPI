@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I6dEo6B9FCcnNBau6SUkJ0aMCgSETe7GfhQxgXhmVlAaSDjM73zI+kREL+ZmX6SVpy/2s/6RxjD8z5oFrXbFjw==",
+  "dgSpecHash": "f9Xrfge1rFXTK3iP8pQ7jkc2ok+69wu9D9L269l8rIRkpQBOpfk9pvrzHY3R3E6oOUCoxKb932v+D0h4r2SL6A==",
   "success": true,
-  "projectFilePath": "E:\\Programiranje\\Projekti\\MonoWEBapi\\Mono\\Mono.csproj",
+  "projectFilePath": "E:\\Programiranje\\Projekti\\MonoAPI\\Mono\\Mono.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Feecho\\.nuget\\packages\\autofac\\8.0.0\\autofac.8.0.0.nupkg.sha512",
     "C:\\Users\\Feecho\\.nuget\\packages\\autofac.extensions.dependencyinjection\\9.0.0\\autofac.extensions.dependencyinjection.9.0.0.nupkg.sha512",
