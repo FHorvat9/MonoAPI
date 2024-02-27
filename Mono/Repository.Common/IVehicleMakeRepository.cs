@@ -6,7 +6,7 @@ namespace Mono.Repository.Common
 {
     public interface IVehicleMakeRepository : IGenericRepository<VehicleMakeEntity>
     {
-        IQueryable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter);
+        IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter);
        
     }
 }

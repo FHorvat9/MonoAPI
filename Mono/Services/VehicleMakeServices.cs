@@ -27,13 +27,13 @@ namespace Mono.Services
             return true;
         }
 
-        public IQueryable<VehicleMakeEntity> GetAll()
+        public IEnumerable<VehicleMakeEntity> GetAll()
         {
             return _unitOfWork.VehicleMake.GetAll();
             
         }
 
-        public IQueryable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
+        public IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
         {
             return _unitOfWork.VehicleMake.GetAll(filter);
         }

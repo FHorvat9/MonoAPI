@@ -39,7 +39,7 @@ namespace Mono.Repository
             }  
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             return _dbSet;
         }

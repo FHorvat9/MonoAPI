@@ -27,8 +27,9 @@ namespace Mono.WebAPI
             
             var vehicles =  _vehicleMakeServices.GetAll();
             
-            
-            return Ok(vehicles);
+            var vehiclesPOCO = _mapper.Map<IEnumerable<VehicleMakePOCO>>(vehicles);
+
+            return Ok(vehiclesPOCO);
         }
         [HttpGet("GetAllVehicleMakesFiltered")]
         public async Task<IActionResult> ReadAll(string? sortOrder, string? searchString, int page, int pageSize)
@@ -39,9 +40,9 @@ namespace Mono.WebAPI
             filter.page = page;
             filter.pageSize = pageSize;
             var vehicles = _vehicleMakeServices.GetAll(filter);
+            var vehiclesPOCO = _mapper.Map<IEnumerable<VehicleMakePOCO>>(vehicles);
 
-
-            return Ok(vehicles);
+            return Ok(vehiclesPOCO);
         }
 
 
@@ -55,9 +56,10 @@ namespace Mono.WebAPI
         {
             
             var vehicles = await _vehicleMakeServices.GetByIdAsync(id);
-            if (vehicles != null)
+            var vehiclePOCO = _mapper.Map<VehicleMakePOCO>(vehicles);
+            if (vehiclePOCO != null)
             {
-                return Ok(vehicles);
+                return Ok(vehiclePOCO);
             }
             return BadRequest();
 

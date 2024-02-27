@@ -9,6 +9,8 @@ namespace Mono.WebAPI
         public AutoMappingProfiles()
         {
             CreateMap<VehicleMakeEntity, VehicleMakePOCO>().ReverseMap();
+            
         }
     }
 }
+

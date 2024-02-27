@@ -9,7 +9,7 @@ namespace Mono.Common
     {
 
 
-        public static IQueryable<VehicleMakeEntity> createFilteredList(IQueryable<VehicleMakeEntity> source, VehicleMakeFilter filter)
+        public static IEnumerable<VehicleMakeEntity> createFilteredList(IEnumerable<VehicleMakeEntity> source, VehicleMakeFilter filter)
         {
             var VehicleListFiltered = GetAllVehicleMakesFiltered(source, filter.searchString);
             var VehicleListFilteredSorted = GetAllVehicleMakesSorted(VehicleListFiltered, filter.sortOrder);
@@ -23,7 +23,7 @@ namespace Mono.Common
             
         }
 
-        private static IQueryable<VehicleMakeEntity> GetAllVehicleMakesFiltered(IQueryable<VehicleMakeEntity> source, string searchString)
+        private static IEnumerable<VehicleMakeEntity> GetAllVehicleMakesFiltered(IEnumerable<VehicleMakeEntity> source, string searchString)
         {
             if (!searchString.IsNullOrEmpty())
             {
@@ -33,7 +33,7 @@ namespace Mono.Common
 
 
         }
-        private static  IQueryable<VehicleMakeEntity> GetAllVehicleMakesSorted(IQueryable<VehicleMakeEntity> source, string sortOrder)
+        private static  IEnumerable<VehicleMakeEntity> GetAllVehicleMakesSorted(IEnumerable<VehicleMakeEntity> source, string sortOrder)
         {
             if (sortOrder == null)
             {
@@ -56,7 +56,7 @@ namespace Mono.Common
 
             }
         }
-        private static IQueryable<VehicleMakeEntity> createPaginatedList(IQueryable<VehicleMakeEntity> source, VehicleMakeFilter filter)
+        private static IEnumerable<VehicleMakeEntity> createPaginatedList(IEnumerable<VehicleMakeEntity> source, VehicleMakeFilter filter)
         {
             
             var count = source.Count();
