@@ -16,9 +16,9 @@ namespace Mono.Repository
 
         }
 
-        public IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
+        public IEnumerable<VehicleMakeEntity> GetAllVehicleMakes(VehicleMakeFilterParams filter)
         {
-            return FilteredList.createFilteredList(base.GetAll(), filter);
+            return VehicleMakeFiltering.CreateFilteredList(base.GetAll(), filter);
             
         }
        

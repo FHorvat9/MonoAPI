@@ -33,9 +33,9 @@ namespace Mono.Services
             
         }
 
-        public IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter)
+        public IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilterParams filter)
         {
-            return _unitOfWork.VehicleMake.GetAll(filter);
+            return _unitOfWork.VehicleMake.GetAllVehicleMakes(filter);
         }
 
 

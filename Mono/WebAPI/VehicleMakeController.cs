@@ -34,11 +34,11 @@ namespace Mono.WebAPI
         [HttpGet("GetAllVehicleMakesFiltered")]
         public async Task<IActionResult> ReadAll(string? sortOrder, string? searchString, int page, int pageSize)
         {
-            VehicleMakeFilter filter = new VehicleMakeFilter();
-            filter.sortOrder = sortOrder;
-            filter.searchString = searchString;
-            filter.page = page;
-            filter.pageSize = pageSize;
+            VehicleMakeFilterParams filter = new VehicleMakeFilterParams();
+            filter.SortOrder = sortOrder;
+            filter.SearchString = searchString;
+            filter.Page = page;
+            filter.PageSize = pageSize;
             var vehicles = _vehicleMakeServices.GetAll(filter);
             var vehiclesPOCO = _mapper.Map<IEnumerable<VehicleMakePOCO>>(vehicles);
 

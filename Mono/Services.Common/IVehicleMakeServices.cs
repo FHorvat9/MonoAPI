@@ -7,7 +7,7 @@ namespace Mono.Services.Common
     public interface IVehicleMakeServices
     {
         IEnumerable<VehicleMakeEntity> GetAll();
-        IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilter filter);
+        IEnumerable<VehicleMakeEntity> GetAll(VehicleMakeFilterParams filter);
         
         Task<VehicleMakeEntity> GetByIdAsync(int id);
         Task UpdateAsync(VehicleMakeEntity entity);
